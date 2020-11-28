@@ -1,7 +1,7 @@
+import shopService from '../services/shopService'
 export default {
   index: async (ctx: any) => {
-    const { shop, accessToken } = ctx.session
-    console.log(shop)
-    ctx.body = 'ok'
+    const result = await shopService.getMyShop(ctx)
+    ctx.body = result
   }
 }
