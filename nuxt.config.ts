@@ -1,4 +1,6 @@
 import { NuxtConfig } from '@nuxt/types'
+require('dotenv').config()
+require('isomorphic-fetch')
 
 const config: NuxtConfig = {
   mode: 'universal',
@@ -27,7 +29,9 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '~/assets/css/normalize.css',
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -56,6 +60,10 @@ const config: NuxtConfig = {
   /*
    ** Build configuration
    */
+  server: {
+    port: 8081,
+    host: '0.0.0.0'
+  },
   build: {
     /*
      ** You can extend webpack config here

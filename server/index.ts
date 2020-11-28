@@ -1,7 +1,12 @@
 import Koa from 'koa'
 import consola from 'consola'
 import { Nuxt, Builder } from 'nuxt'
-
+import session from 'koa-session'
+import cors from '@koa/cors'
+import bodyParser from 'koa-bodyparser'
+import { verifyRequest } from '@shopify/koa-shopify-auth'
+import shopifyAuth from './middlewares/shopify-auth'
+import fillShopQuery from './middlewares/fill-shop-query'
 const app = new Koa()
 
 // Import and Set Nuxt.js options
@@ -24,6 +29,17 @@ async function start() {
   } else {
     await nuxt.ready()
   }
+  const { SHOPIFY_API_SECRET } = process.env
+  app.keys = [SHOPIFY_API_SECRET as string]
+
+  app.use(session({ secure: true, sameSite: 'none' }, app))
+  app.use(cors())
+  app.use(bodyParser())
+
+  // Shopify-related middlewares
+  app.use(fillShopQuery())
+  app.use(shopifyAuth())
+  app.use(verifyRequest())
 
   app.use((ctx: any) => {
     ctx.status = 200
