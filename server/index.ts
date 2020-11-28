@@ -7,6 +7,7 @@ import bodyParser from 'koa-bodyparser'
 import { verifyRequest } from '@shopify/koa-shopify-auth'
 import shopifyAuth from './middlewares/shopify-auth'
 import fillShopQuery from './middlewares/fill-shop-query'
+import router from './routes'
 const app = new Koa()
 
 // Import and Set Nuxt.js options
@@ -14,6 +15,8 @@ import config from '../nuxt.config'
 config.dev = app.env !== 'production'
 
 async function start() {
+  app.use(router.routes())
+  app.use(router.allowedMethods())
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
 
@@ -35,8 +38,6 @@ async function start() {
   app.use(session({ secure: true, sameSite: 'none' }, app))
   app.use(cors())
   app.use(bodyParser())
-
-  // Shopify-related middlewares
   app.use(fillShopQuery())
   app.use(shopifyAuth())
   app.use(verifyRequest())
