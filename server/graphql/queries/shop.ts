@@ -15,7 +15,7 @@ const getShop = gql`
         }
       }
     }
-}
+  }
 `
 
 export default {

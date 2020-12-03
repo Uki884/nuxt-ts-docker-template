@@ -1,33 +1,42 @@
-let database = process.env.DB_NAME || 'shopify_db'
-let username = process.env.DB_USER || 'postgres'
-let password = process.env.DB_PASSWORD || 'password'
-let host = process.env.DB_HOST || 'db'
-let port = process.env.DB_PORT || '5432'
-console.log('port', port, 'username', username, 'database', database)
+require('dotenv').config()
+const database = process.env.DB_NAME || 'shopify_db'
+const username = process.env.DB_USER || 'postgres'
+const password = process.env.DB_PASSWORD || 'password'
+const host = process.env.DB_HOST || 'db'
+const port = process.env.DB_PORT || '5432'
+console.log(
+  'port',
+  port,
+  'username',
+  username,
+  'database',
+  process.env.DB_HOST,
+  database
+)
 
 module.exports = {
   development: {
-    username: username,
-    password: password,
-    database: database,
-    host: host,
-    port: port,
+    username,
+    password,
+    database,
+    host,
+    port,
     dialect: 'postgres'
   },
   test: {
-    username: username,
-    password: password,
-    database: database,
+    username,
+    password,
+    database,
     host: '127.0.0.1',
-    port: port,
+    port,
     dialect: 'postgres'
   },
   production: {
-    username: username,
-    password: password,
-    database: database,
-    host: host,
-    port: port,
+    username,
+    password,
+    database,
+    host,
+    port,
     dialect: 'postgres'
   }
 }

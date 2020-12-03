@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    // "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2018",
+    // "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -30,7 +30,11 @@
       "@nuxtjs/axios"
     ]
   },
+  "include": [
+    "*/**/*",
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".nuxt"
   ]
 }

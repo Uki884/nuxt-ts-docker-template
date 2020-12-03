@@ -1,1 +1,1 @@
-declare module "graphql-request"
+declare module 'graphql-request'

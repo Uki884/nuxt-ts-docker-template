@@ -1,4 +1,4 @@
-import shopifyAuth from '@shopify/koa-shopify-auth';
+import shopifyAuth from '@shopify/koa-shopify-auth'
 
 const { SHOPIFY_API_KEY, SHOPIFY_API_SECRET, SCOPES } = process.env
 

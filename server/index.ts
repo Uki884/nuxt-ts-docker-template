@@ -5,13 +5,13 @@ import session from 'koa-session'
 import cors from '@koa/cors'
 import bodyParser from 'koa-bodyparser'
 import { verifyRequest } from '@shopify/koa-shopify-auth'
+import config from '../nuxt.config'
 import shopifyAuth from './middlewares/shopify-auth'
 import fillShopQuery from './middlewares/fill-shop-query'
 import router from './routes'
-const app = new Koa()
 
 // Import and Set Nuxt.js options
-import config from '../nuxt.config'
+const app = new Koa()
 config.dev = app.env !== 'production'
 
 async function start() {

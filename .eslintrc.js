@@ -4,29 +4,29 @@ module.exports = {
     browser: true,
     node: true
   },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
   extends: [
-    "eslint:recommended",
-    "plugin:vue/recommended",
-    "plugin:prettier/recommended",
-    "prettier/vue"
-  ],
-  plugins: [
+    '@nuxtjs/eslint-config-typescript',
     'prettier',
-    'vue',
+    'prettier/vue',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended'
   ],
+  plugins: ['prettier'],
   // add your custom rules here
   rules: {
     'nuxt/no-cjs-in-config': 'off',
-    "vue/max-attributes-per-line": [
-      "error",
+    '@typescript-eslint/no-unused-vars': 'off',
+    'no-console': 'off',
+    'no-unused-vars': 'off',
+    'vue/comment-directive': 'off',
+    camelcase: 'off',
+    'vue/max-attributes-per-line': [
+      'error',
       {
-        "singleline": 5,
-        "multiline": {
-          "max": 1,
-          "allowFirstLine": false
+        singleline: 5,
+        multiline: {
+          max: 1,
+          allowFirstLine: false
         }
       }
     ]

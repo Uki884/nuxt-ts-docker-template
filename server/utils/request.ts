@@ -1,15 +1,15 @@
-import { GraphQLClient } from 'graphql-request';
-import config from '../config/graphqlConfig';
+import { GraphQLClient } from 'graphql-request'
+import config from '../config/graphqlConfig'
 
 const useGraphQL = (ctx) => {
   const { shop, accessToken } = ctx.session
-  console.log('accessToken', accessToken);
+  console.log('accessToken', accessToken)
   const graphQLClient = new GraphQLClient(config.endpoint, {
     headers: {
-      'X-Shopify-Access-Token': accessToken,
-    },
+      'X-Shopify-Access-Token': accessToken
+    }
   })
-  const useRequest = async(payload, variables = undefined) => {
+  const useRequest = async (payload, variables = undefined) => {
     try {
       const result = await graphQLClient.request(payload, variables)
       return result

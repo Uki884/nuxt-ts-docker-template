@@ -4,7 +4,7 @@ require('isomorphic-fetch')
 
 const config: NuxtConfig = {
   mode: 'universal',
-  srcDir: "./client/",
+  srcDir: './client/',
   telemetry: false,
   /*
    ** Headers of the page
@@ -29,9 +29,7 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/css/normalize.css',
-  ],
+  css: ['~/assets/css/normalize.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -44,6 +42,7 @@ const config: NuxtConfig = {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    ['@nuxt/typescript-build', { typeCheck: false }]
   ],
   /*
    ** Nuxt.js modules
