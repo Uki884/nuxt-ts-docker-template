@@ -1,4 +1,5 @@
 import { NuxtConfig } from '@nuxt/types'
+import path from 'path'
 require('dotenv').config()
 require('isomorphic-fetch')
 
@@ -62,6 +63,12 @@ const config: NuxtConfig = {
   server: {
     port: 8081,
     host: '0.0.0.0'
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname),
+      '~': path.resolve(__dirname),
+    }
   },
   build: {
     /*

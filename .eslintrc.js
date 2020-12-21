@@ -18,17 +18,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'no-console': 'off',
     'no-unused-vars': 'off',
-    'vue/comment-directive': 'off',
-    camelcase: 'off',
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 5,
-        multiline: {
-          max: 1,
-          allowFirstLine: false
-        }
-      }
-    ]
+    camelcase: 'off'
   }
 }
