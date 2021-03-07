@@ -1,9 +1,0 @@
-'use strict';
-
-const path = require('path');
-
-module.exports = {
-  config: path.join(__dirname, 'server/config/config.ts'),
-  "migrations-path": path.join(__dirname, 'server/migrations'),
-  "models-path": path.join(__dirname, 'server/models'),
-};

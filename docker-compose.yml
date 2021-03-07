@@ -41,7 +41,6 @@ services:
       DB_PORT: ${DB_PORT}
     ports:
       - "8081:8081"
-    command: npm run dev
     volumes:
       - .:/app
       - node_modules:/app/node_modules
@@ -50,4 +49,3 @@ services:
 volumes:
   pgdata:
   node_modules:
-    driver: local

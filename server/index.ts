@@ -9,12 +9,14 @@ import config from '../nuxt.config'
 import shopifyAuth from './middlewares/shopify-auth'
 import fillShopQuery from './middlewares/fill-shop-query'
 import router from './routes'
+import createConnection from './database/createDatabaseConnection'
 
 // Import and Set Nuxt.js options
 const app = new Koa()
 config.dev = app.env !== 'production'
 
 async function start() {
+  await createConnection()
   app.use(router.routes())
   app.use(router.allowedMethods())
   // Instantiate nuxt.js

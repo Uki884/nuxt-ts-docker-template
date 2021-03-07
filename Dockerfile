@@ -1,12 +1,10 @@
 FROM node:12
 
 WORKDIR /app
+COPY . .
 
 COPY package*.json ./
 RUN npm install --quiet
-
-COPY . .
-
-VOLUME /app
 EXPOSE 8081
-CMD ["npm", "run", "dev"]
+CMD ["sh", "-c", "npm install && npm run dev"]
+

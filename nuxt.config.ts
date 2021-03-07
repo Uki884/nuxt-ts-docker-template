@@ -1,5 +1,5 @@
-import { NuxtConfig } from '@nuxt/types'
 import path from 'path'
+import { NuxtConfig } from '@nuxt/types'
 require('dotenv').config()
 require('isomorphic-fetch')
 
@@ -38,13 +38,7 @@ const config: NuxtConfig = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
-    ['@nuxt/typescript-build', { typeCheck: false }]
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxt/typescript-build'],
   /*
    ** Nuxt.js modules
    */
@@ -67,7 +61,7 @@ const config: NuxtConfig = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname),
-      '~': path.resolve(__dirname),
+      '~': path.resolve(__dirname)
     }
   },
   build: {

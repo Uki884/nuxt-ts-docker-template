@@ -6,11 +6,14 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.ts --watch server",
-    "build": "nuxt-ts build",
-    "start": "cross-env NODE_ENV=production ts-node server/index.ts",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "nuxt build",
+    "build:server": "rm -rf dist/ && cd server && tsc",
+    "prestart": "cp -R .nuxt/dist/ dist/server/.nuxt",
+    "start": "node dist/server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
-    "sequelize": "./node_modules/sequelize-cli/lib/sequelize"
+    "heroku-postbuild": "npm run build"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
@@ -25,7 +28,10 @@
     "@koa/router": "^10.0.0",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.3.6",
+    "@shopify/app-bridge": "^1.29.0",
     "@shopify/koa-shopify-auth": "^3.1.72",
+    "@shopify/koa-shopify-graphql-proxy": "^4.0.4",
+    "@shopify/koa-shopify-webhooks": "^2.5.2",
     "@types/koa-session": "^5.10.3",
     "cross-env": "^5.2.0",
     "graphql": "^15.4.0",
@@ -34,12 +40,16 @@
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.3.0",
     "koa-session": "^6.1.0",
-    "nuxt": "^2.0.0",
+    "moment-timezone": "^0.5.32",
+    "nuxt": "2.15.2",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "ts-node": "^9.0.0",
+    "typeorm": "^0.2.31",
     "typescript": "^4.1.2"
   },
   "devDependencies": {
@@ -50,8 +60,7 @@
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/tailwindcss": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^7.10.0",
+    "eslint": "^7.21.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.0.1",
