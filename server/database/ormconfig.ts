@@ -20,9 +20,9 @@ const config = {
     username: process.env.DB_USERNAME || 'postgres', // DBユーザ名
     password: process.env.DB_PASSWORD || 'password', // DBパスワード
     database: process.env.DB_NAME || 'developtment', // DB名
-    entities: ['server/database/entities/**/*.js'],
-    migrations: ['server/server/database/migrations/**/*.js'],
-    subscribers: ['server/database/subscribers/**/*.js']
+    entities: ['server/database/entities/**/*.ts'],
+    migrations: ['server/server/database/migrations/**/*.ts'],
+    subscribers: ['server/database/subscribers/**/*.ts']
   }
 }
 

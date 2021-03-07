@@ -35,6 +35,9 @@ const config: NuxtConfig = {
    ** Plugins to load before mounting the App
    */
   plugins: [],
+  router: {
+    middleware: 'auth'
+  },
   /*
    ** Nuxt.js dev-modules
    */
@@ -64,7 +67,9 @@ const config: NuxtConfig = {
       '~': path.resolve(__dirname)
     }
   },
+  extensions: ['vue', 'js', 'ts'],
   build: {
+    additionalExtensions: ['ts', 'tsx'],
     /*
      ** You can extend webpack config here
      */
