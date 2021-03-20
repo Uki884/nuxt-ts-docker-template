@@ -1,7 +1,7 @@
 {
-  "name": "shopify-nuxt-docker-template",
+  "name": "nuxt-ts-vite-template",
   "version": "1.0.0",
-  "description": "shopify-nuxt-docker-template",
+  "description": "nuxt-ts-vite-template",
   "author": "林悠暉",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "build:client": "nuxt build",
     "build:server": "rm -rf dist/ && cd server && tsc",
     "prestart": "cp -R .nuxt/dist/ dist/server/.nuxt",
-    "start": "node dist/server/index.js",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
     "heroku-postbuild": "npm run build"
@@ -28,10 +28,6 @@
     "@koa/router": "^10.0.0",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.3.6",
-    "@shopify/app-bridge": "^1.29.0",
-    "@shopify/koa-shopify-auth": "^3.1.72",
-    "@shopify/koa-shopify-graphql-proxy": "^4.0.4",
-    "@shopify/koa-shopify-webhooks": "^2.5.2",
     "@types/koa-session": "^5.10.3",
     "cross-env": "^5.2.0",
     "graphql": "^15.4.0",
@@ -67,6 +63,7 @@
     "husky": "^2.6.0",
     "lint-staged": "^8.2.1",
     "nodemon": "^1.18.9",
+    "nuxt-vite": "0.0.36",
     "prettier": "^1.16.4"
   }
 }

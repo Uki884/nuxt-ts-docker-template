@@ -4,7 +4,7 @@ require('dotenv').config()
 require('isomorphic-fetch')
 
 const config: NuxtConfig = {
-  mode: 'universal',
+  ssr: false,
   srcDir: './client/',
   telemetry: false,
   /*
@@ -41,7 +41,12 @@ const config: NuxtConfig = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/eslint-module', '@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxt/typescript-build',
+    'nuxt-vite'
+  ],
+  vite: {},
   /*
    ** Nuxt.js modules
    */
