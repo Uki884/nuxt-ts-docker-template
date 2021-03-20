@@ -4,7 +4,6 @@ require('dotenv').config()
 require('isomorphic-fetch')
 
 const config: NuxtConfig = {
-  ssr: false,
   srcDir: './client/',
   telemetry: false,
   /*
